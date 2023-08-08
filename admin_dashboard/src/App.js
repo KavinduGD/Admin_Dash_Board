@@ -23,12 +23,15 @@ import {
 } from "./pages";
 import "./App.css";
 
+import { useStateContext } from "./context/ContextProvider";
 const App = () => {
-  const activeMenu = false;
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
         <div className="flex realtive dark:bg-main-dark-bg">
+          {/* Setting Icon */}
           <div className="fixed right-4 bottom-4" style={{ zIndex: 1000 }}>
             <TooltipComponent content="Settings" position="Top">
               <button
@@ -40,21 +43,32 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
+
+          {/* Side Bar */}
           {activeMenu ? (
-            <div className="w-72 fixed dark:bg-secondary-dark-bg bg-white">
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg  bg-white">
               <Sidebar />
             </div>
           ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">sidebar w-0</div>
+            <div className="w-0 dark:bg-secondary-dark-bg">
+              <Sidebar />
+            </div>
           )}
+
+          {/* Middle  */}
           <div
-            className={`dark:bg-main-dark-bg bg-main-bg  min-h-screen w-full ${
-              activeMenu ? "md:ml-72" : "flex-2"
-            }`}
+            className={
+              activeMenu
+                ? "dark:bg-main-dark-bg  bg-main-bg min-h-screen  w-full md:ml-72 "
+                : "dark:bg-main-dark-bg bg-main-bg   min-h-screen  w-full flex-2 "
+            }
           >
-            <div className="fixed md:static  bg-main-bg dark:bg-main-dark-bg navbar w-full">
+            {/* Navbar */}
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full  ">
               <Navbar />
             </div>
+
+            {/* Content */}
             <div>
               <Routes>
                 {/* dashboard  */}
