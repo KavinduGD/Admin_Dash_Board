@@ -40,7 +40,8 @@ module.exports = {
         590: "590px",
       },
       backgroundImage: {
-        "hero-pattern": "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+        "hero-pattern":
+          "url('https://www.shutterstock.com/shutterstock/photos/2015415110/display_1500/stock-vector-woman-working-with-big-data-and-tech-information-on-laptop-system-administrator-setting-software-2015415110.jpg')",
       },
     },
   },
