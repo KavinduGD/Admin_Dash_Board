@@ -85,7 +85,7 @@ const Navbar = () => {
           dotColor="#03C9D7"
           color={currentColor}
           icon={<BsChatLeft />}
-        />{" "}
+        />
         <NavButton
           title="Notification"
           customFunc={() => handleClick("notification")}
@@ -110,6 +110,7 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-20" />
           </div>
         </TooltipComponent>
+
         {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}
