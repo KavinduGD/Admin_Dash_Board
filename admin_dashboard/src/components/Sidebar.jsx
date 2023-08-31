@@ -7,7 +7,8 @@ import { useStateContext } from "../context/ContextProvider";
 import { links } from "../data/dummy";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
 
   const handleColseSideBar = () => {
     if (activeMenu && screenSize <= 900) {
@@ -15,7 +16,7 @@ const Sidebar = () => {
     }
   };
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  bg-sky-700 text-white  text-md m-2";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg   text-white  text-md m-2";
   const normalLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 ";
   return (
@@ -29,7 +30,7 @@ const Sidebar = () => {
               className="flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900 ml-3 mt-4 gap-3 items-center "
             >
               <SiShopware />
-              <sapn>Shoppy</sapn>
+              <span>Shoppy</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
@@ -50,19 +51,20 @@ const Sidebar = () => {
                   {item.title}
                 </p>
                 {item.links.map((link) => (
-                  <div>
-                    <NavLink
-                      key={link.name}
-                      to={`${link.name}`}
-                      onClick={handleColseSideBar}
-                      className={({ isActive }) =>
-                        isActive ? activeLink : normalLink
-                      }
-                    >
-                      {link.icon}
-                      <span className="capitalize"> {link.name}</span>
-                    </NavLink>
-                  </div>
+                  <NavLink
+                    key={link.name}
+                    to={`${link.name}`}
+                    onClick={handleColseSideBar}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
+                  >
+                    {link.icon}
+                    <span className="capitalize"> {link.name}</span>
+                  </NavLink>
                 ))}
               </div>
             ))}

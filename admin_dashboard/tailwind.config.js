@@ -41,7 +41,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern":
-          "url('https://www.shutterstock.com/shutterstock/photos/2015415110/display_1500/stock-vector-woman-working-with-big-data-and-tech-information-on-laptop-system-administrator-setting-software-2015415110.jpg')",
+          "url('https://res.cloudinary.com/dnoobzfxo/image/upload/v1693503819/iamge123/stock-vector-woman-working-with-big-data-and-tech-information-on-laptop-system-administrator-setting-software-2015415110-removebg-preview_whi0k2.png')",
       },
     },
   },

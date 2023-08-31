@@ -16,7 +16,7 @@ import {
   stackedPrimaryYAxis,
 } from "../../data/dummy";
 
-function Stacked({ width, height }) {
+function Stacked({ currentColor, currentMode, width, height }) {
   return (
     <ChartComponent
       width={width}
@@ -27,11 +27,12 @@ function Stacked({ width, height }) {
       chartArea={{ border: { width: 0 } }}
       tooltip={{ enable: true }}
       legendSettings={{ background: "white" }}
+      background={currentMode === "Dark" ? "#33373E" : "#fff"}
     >
       <Inject services={[Legend, Category, StackingColumnSeries, Tooltip]} />
       <SeriesCollectionDirective>
         {stackedCustomSeries.map((item, index) => {
-          return <SeriesDirective key={index} {...item} />;
+          return <SeriesDirective key={index} {...item} fill={currentColor} />;
         })}
       </SeriesCollectionDirective>
     </ChartComponent>
